@@ -16,6 +16,8 @@ Their is no installation for the project if you would just like to use the live 
 ## Usage
 * Using from the live link: Click on Get Started, from here you can add a note by typeing into the fields marked 'Note Title' and 'Note Text', after that a save icon will appear in the top right to save the note. To delete a note just hit the delete icon next to the note title on the left. To view one of your notes, just click on the note title on the left.
 
+## Live Link:
+* [Website](https://secure-harbor-62111.herokuapp.com/)
 
 ## Contributions
 If you would like to contribute to this project, please follow the guidelines below:
