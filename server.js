@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static('public'));
 
-app.get('/note', (req, res) => {
+app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
 });
 
@@ -23,10 +23,11 @@ app.get('/', (req, res) => {
 
 app.get('/api/notes', (req, res) => {
     let noteList = notes;
+    console.log(noteList)
     res.json(noteList)
 });
 
-app.delete('/api/notes:id', (req, res) => {
+app.delete('/api/notes/:id', (req, res) => {
     delNote(req.params.id);
     res.json({message: `Deleted note successfully!`});
 });
@@ -35,13 +36,13 @@ app.post('/api/notes', (req, res) => {
     let note = {
         id: createID(),
         title: req.body.title,
-        body: req.body.text
+        text: req.body.text
     }
     let noteList = notes;
     noteList.push(note);
     fs.writeFileSync(
         path.join(__dirname, './db/db.json'),
-        JSON.stringify({notes: noteList}, null, 2)
+        JSON.stringify({'notes': noteList}, null, 2)
     );
     res.json(note);
 });
